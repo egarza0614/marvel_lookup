@@ -1,0 +1,55 @@
+#info-section {
+  padding-top: 15px;
+}
+
+.table-box {
+  background-color:#4b6584;
+}
+
+tr {
+  margin: 5px;
+}
+
+.card {
+  background-color: #a5b1c2;
+  margin: 3px;
+  min-height: 300px;
+}
+
+#videoplayer {
+  background-color: #75c0f5;
+}
+
+.hero {
+  height: 5%;
+  background: linear-gradient(
+    to right,
+    #d6dbef, #95a5a6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.image img {
+  transform: scale(0.5);
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: black;}
+
+#submit {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 599px) {
+
+  .column {
+    margin: 2px;
+    padding: 0 20px 0 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+}
