@@ -14,43 +14,35 @@
   </head>
 
   <body>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container">
-          <div class="image is-centered">
-            <img src="assets/images/Marvel_Logo.svg.png" alt="Marvel Logo" />
-          </div>
-          <div class="title">
-            <button class="title" data-bs-toggle="modal" data-bs-target="#formModal">Marvel Lookup</button>
-          </div>
-          <!-- Modal with a form to add tasks -->
-          <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <form id="taskForm">
-                    <div class="mb-3">
-                      <label for="characterName" class="form-label">Character Name</label>
-                      <input type="text" class="form-control" id="characterName" required>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-primary" id="search">Search</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End of modal-->
-        </div>
-      </div>
-    </section>
-
     <section id="info-section">
       <div class="container">
         <div class="columns">
           <div class="column is-one-quarter content">
+            <div class="box table-box">
+              <img src="assets/images/Marvel_Logo.jpg" alt="Marvel Logo" />
+              <br> <button id="lookupButton" class="button is-medium is-fullwidth" data-target="#formModal" onclick="console.log('Lookup button clicked!');">Lookup</button>
+            <!-- Modal with a form to add tasks -->
+            <div class="modal" id="formModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                  <div class="modal-head">
+                    <h5 class="modal-title">Lookup A Marvel Character</h5>
+                  </div>
+                  <div class="modal-body">
+                    <form id="characterSearch">
+                      <div class="field">
+                        <input class="input" type="text" id="characterName" name="characterName" placeholder="Enter Character Name" required>
+                      </div>
+                      <div class="modal-footer">
+                        <button id="closeButton" class="button is-danger is-outlined" data-dismiss="modal">Cancel</button>
+                        <button is="searchButton" class="button is-link is-outlined">Search</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            <!-- End of modal-->
+            </div>
             <!-- character bio section -->
             <div class="box table-box">
               <div class="table-container">
@@ -62,17 +54,23 @@
             </div>
           </div>
           <!-- Space for video content from query -->
-          <div class="column">
-            <div id="videoplayer" class="columns box content">
-              <h2>Trailer Placeholder</h2>
-              <!-- YouTube Video Player Content-->
+          <div class="column is-three-quarter content">
+            <div id="videoplayer" class="columns box content is-centered">
+                <iframe
+                  class="has-ratio"
+                  width="640"
+                  height="360"
+                  src=""
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
             </div>
             <!-- Character cards -->
             <div class="container">
               <div class="content">
                 <div class="columns">
                   <div class="column card">
-                    <h2>Comics</h2>
+                    <h2 class="subtitle">Comics</h2>
                     <div id="comics" class="card-content">
                       <h3 id="comicname" class="has-text-white"></h3>
                       <h4 id="comicresourceURI" class="has-text-white"></h4>
@@ -106,13 +104,14 @@
         </div>
       </div>
     </section>
-
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-    ></script>
-    <script src="assets/js/md5.js"></script>
   </body>
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+  ></script>
+  <script src="assets/js/md5.js"
+  ></script>
+  <script src="assets/js/script.js"
+  ></script>
 </html>
 
 <!-- End of line -->

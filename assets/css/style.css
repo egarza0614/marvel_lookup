@@ -1,13 +1,64 @@
-#info-section {
-  padding-top: 15px;
-}
-
 .table-box {
   background-color:#4b6584;
 }
 
-tr {
-  margin: 5px;
+#videoplayer {
+  background-color: #75c0f5;
+  alignm
+}
+
+.hero {
+  background: linear-gradient(
+    to right,
+    #d6dbef, #95a5a6
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.modal {
+  .modal-content {
+    background-color: #95a5a6; /* White background for modal content */
+    padding: 20px; /* Add some padding for better spacing */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a slight shadow */
+    max-width: 300px; /* Set a maximum width for the modal content */
+  }
+  
+  .modal-title {
+    font-size: 1.5rem; /* Increase title font size */
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 10px; /* Add some margin below the title */
+  }
+}
+
+.modal.is-active .modal-background,
+.modal.is-active .modal-content {
+  animation: modalIn 0.2s ease-out; /* Add animation for modal open/close */
+}
+
+.input {
+  background-color: #e0e0e0; /* Set background color to light gray */
+  color: #000; /* Set text color to black for contrast */
+}
+
+.input::placeholder {
+  color: #4b6584;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media only screen and (max-width: 599px) {
+
+  .column {
+    margin: 5px;
+    padding: 0 20px 0 20px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
 }
 
 .card {
@@ -16,16 +67,8 @@ tr {
   min-height: 300px;
 }
 
-#videoplayer {
-  background-color: #75c0f5;
-}
-
-.hero {
-  height: 5%;
-  background: linear-gradient(
-    to right,
-    #d6dbef, #95a5a6
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#info-section {
+  padding-top: 15px;
 }
 
 .image img {
@@ -35,21 +78,10 @@ tr {
 .title {
   text-align: center;
   font-weight: bold;
-  color: black;}
+  color: black;
+}
 
 #submit {
   width: 100%;
   margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 599px) {
-
-  .column {
-    margin: 2px;
-    padding: 0 20px 0 20px;
-  }
-
-  .card-content {
-    padding: 20px;
-  }
 }

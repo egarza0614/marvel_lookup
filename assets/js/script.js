@@ -1,6 +1,9 @@
 const searchFormEl = document.querySelector('#search-form');
 
-const formModal = document.querySelector('#formModal');
+const modal = document.getElementById('formModal');
+const lookupButton = document.getElementById('lookupButton');
+const closeButton = document.getElementById('closeButton');
+
 const characterBio = document.querySelector('#characterbio')
 const videoplayer = document.querySelector('#videoplayer');
 
@@ -12,8 +15,6 @@ const events = document.querySelector('#events');
 const eventName = document.querySelector('#eventname');
 const eventsUri = document.querySelector('#eventresourceURI');
 
-
-
 const series = document.querySelector('#series');
 const seriesName = document.querySelector('#seriesname');
 const seriesUri = document.querySelector('#seriesresourceURI');
@@ -22,9 +23,24 @@ const stories = document.querySelector('#stories');
 const storyName = document.querySelector('#storiename');
 const storyUri = document.querySelector('#storieresourceURI');
 
-
 var hash = md5(Date.now() + '3678b6d1f8b70006affda9d60258ca738a1d711d' + 'e9c59940647d72ae6b7437b52015d524');
 const marvelURL = `https://gateway.marvel.com:443/v1/public/characters?name=iron%20man&apikey=e9c59940647d72ae6b7437b52015d524&hash=${hash}`
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Add click event listener to the button to open the modal
+lookupButton.addEventListener('click', openModal);
+
+// Add click event listener to the close button to close the modal
+closeButton.addEventListener('click', closeModal);
 
 function characterSearch(e) {    
     e.preventDefault()
@@ -44,18 +60,16 @@ function characterSearch(e) {
         .catch(error => console.error('Error:', error));
 }
 
-        characterBio.textContent = data.
-        comics.textContent = data.
-        comicName.textContent = data.
-        comicUri.textContent = data.
-        events.textContent = data.
-        eventName.textContent = data.
-        eventsUri.textContent = data.
-        series.textContent = data.
-        seriesName.textContent = data.
-        seriesUri.textContent = data.
-        stories.textContent = data.
-        storyName.textContent = data.
-        storyUri.textContent = data.
-
-document.querySelector("#search").addEventListener('click', characterSearch);
+        // characterBio.textContent = data.
+        // comics.textContent = data.
+        // comicName.textContent = data.
+        // comicUri.textContent = data.
+        // events.textContent = data.
+        // eventName.textContent = data.
+        // eventsUri.textContent = data.
+        // series.textContent = data.
+        // seriesName.textContent = data.
+        // seriesUri.textContent = data.
+        // stories.textContent = data.
+        // storyName.textContent = data.
+        // storyUri.textContent = data.
