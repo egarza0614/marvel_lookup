@@ -12,8 +12,6 @@ const events = document.querySelector('#events');
 const eventName = document.querySelector('#eventname');
 const eventsUri = document.querySelector('#eventresourceURI');
 
-
-
 const series = document.querySelector('#series');
 const seriesName = document.querySelector('#seriesname');
 const seriesUri = document.querySelector('#seriesresourceURI');
@@ -21,7 +19,6 @@ const seriesUri = document.querySelector('#seriesresourceURI');
 const stories = document.querySelector('#stories');
 const storyName = document.querySelector('#storiename');
 const storyUri = document.querySelector('#storieresourceURI');
-
 
 var hash = md5(Date.now() + '3678b6d1f8b70006affda9d60258ca738a1d711d' + 'e9c59940647d72ae6b7437b52015d524');
 const marvelURL = `https://gateway.marvel.com:443/v1/public/characters?name=iron%20man&apikey=e9c59940647d72ae6b7437b52015d524&hash=${hash}`
