@@ -14,16 +14,18 @@
   </head>
 
   <body>
-    <section id="info-section">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-one-quarter content">
-            <div class="box table-box">
-              <img src="assets/images/Marvel_Logo.jpg" alt="Marvel Logo" />
-              <br> <button id="lookupButton" class="button is-medium is-fullwidth" data-target="#formModal" onclick="console.log('Lookup button clicked!');">Lookup</button>
-            <!-- Modal with a form to add tasks -->
-            <div class="modal" id="formModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
-              <div class="modal-background"></div>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="image is-centered">
+            <img src="assets/images/Marvel_Logo.svg.png" alt="Marvel Logo" />
+          </div>
+          <div class="title">
+            <button class="title" data-bs-toggle="modal" data-bs-target="#formModal">Marvel Lookup</button>
+          </div>
+          <!-- Modal with a form to add tasks -->
+          <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-head">
                     <h5 class="modal-title">Lookup A Marvel Character</h5>
@@ -104,14 +106,13 @@
         </div>
       </div>
     </section>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script src="assets/js/md5.js"></script>
   </body>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-  ></script>
-  <script src="assets/js/md5.js"
-  ></script>
-  <script src="assets/js/script.js"
-  ></script>
 </html>
 
 <!-- End of line -->
