@@ -4,13 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Marvel Lookup</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
   </head>
 
   <body>
@@ -29,7 +25,7 @@
                     <h5 class="modal-title">Lookup A Marvel Character</h5>
                   </div>
                   <div class="modal-body">
-                    <form id="characterSearch">
+                    <form id="characterSearch" onsubmit="console.log('Form Submitted!')">
                       <div class="field">
                         <input class="input" type="text" id="characterName" name="characterName" placeholder="Enter Character Name" required>
                       </div>
@@ -47,24 +43,16 @@
             <div class="box table-box">
               <div class="table-container">
                 <table id="characterbio" class="table is-bordered">
-                  <tr></tr>
-                  Table data generated in javascript|Name|Bio|Thumbnail
-                </table>
+                  </table>
               </div>
             </div>
           </div>
           <!-- Space for video content from query -->
-          <div class="column is-three-quarter content">
+          <div class="column">
             <div id="videoplayer" class="columns box content is-centered">
-                <iframe
-                  class="has-ratio"
-                  width="640"
-                  height="360"
-                  src=""
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
+              <div id="video-placeholder-message">Search for a Marvel character to see a trailer!</div>
             </div>
+
             <!-- Character cards -->
             <div class="container">
               <div class="content">
@@ -129,21 +117,13 @@
                       <h4 id="storieresourceURI4" class="has-text-white"></h4>
                     </div>
                   </div>
-                  </div>
-              </div>
-            </div>
+            <div class="footer"><a href="http://marvel.com">"Data provided by Marvel. © 2014 Marvel"
+            </a></div>  
           </div>
         </div>
       </div>
     </section>
-
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-    ></script>
     <script src="assets/js/md5.js"></script>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
-
-<!-- End of line -->
