@@ -122,9 +122,10 @@ function characterSearch(e) {
     const privateKey = '3678b6d1f8b70006affda9d60258ca738a1d711d';
     const ts = new Date().getTime();
     const hash = md5(ts + privateKey + publicKey);
-
-    const marvelURL = `https://gateway.marvel.com/v1/public/characters?${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    
     let character = document.querySelector('#characterName').value;
+
+    const marvelURL = `https://gateway.marvel.com/v1/public/characters?name=${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
     fetch(marvelURL)
         .then(response => {
@@ -133,12 +134,9 @@ function characterSearch(e) {
             }
             return response.json();
         })
-        .then(data => updateCharacterBio(data)) // Call the separate function to update character info
-        .then(data => {console.log(data)
-        .catch(error => console.error('Error:', error))
-        
-        //characterBio.textContent = data.data.results[0].description;
-
+        .then(data => {
+          console.log(data); // Log data for debugging purposes
+          updateCharacterBio(data);  // Update character info
         comicName0.textContent = data.data.results[0].comics.items[0].name;
         comicUri0.textContent = data.data.results[0].comics.items[0].resourceURI;
         comicName1.textContent = data.data.results[0].comics.items[1].name;
@@ -185,15 +183,16 @@ function characterSearch(e) {
         storyUri3.textContent = data.data.results[0].stories.items[3].resourceURI;
         storyName4.textContent = data.data.results[0].stories.items[4].name;
         storyUri4.textContent = data.data.results[0].stories.items[4].resourceURI;
-
+      })
+      .catch(error => console.error('Error:', error));  // Catch errors from fetch or updateCharacterBio
+              
   // Call searchYoutube only if YouTube API is ready
   if (typeof YT !== 'undefined' && YT.Player) {
-    //searchYoutube(character);
+    searchYoutube(character);
   } else {
     console.error("YouTube API not yet loaded. Search may not work correctly.");
   }
 }
-)}
 
 // Function to get the video id of the youtube video
 function searchYoutube(character) {
@@ -225,7 +224,7 @@ function searchYoutube(character) {
 
 // Function for the name, thumbnail and description of the character
 function updateCharacterBio(data) {
-  console.log("Character Bio Data:", character);
+  //console.log("Character Bio Data:", character);
   // Clear existing content (optional)
   characterBio.innerHTML = ''; // This removes any previous content
 
