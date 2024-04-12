@@ -4,7 +4,9 @@
 
 #videoplayer {
   background-color: #75c0f5;
-  alignm
+  align: center;
+  height: 390px;
+  width: 640px;
 }
 
 .hero {
@@ -84,4 +86,12 @@
 #submit {
   width: 100%;
   margin-bottom: 20px;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: bottom; /* Center align the content horizontally */
+  padding: 5px 0; /* Add 5px padding top and bottom */
 }
