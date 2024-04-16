@@ -6,6 +6,7 @@ const lookupButton = document.getElementById('lookupButton');
 const modal = document.getElementById('formModal');
 const closeButton = document.getElementById('closeButton');
 
+const thumbnail = document.querySelector('#thumbnail');
 const characterBio = document.querySelector('#characterbio')
 const videoplayer = document.querySelector('#videoplayer');
 
@@ -15,11 +16,7 @@ const comicName1 = document.querySelector('#comicname1');
 const comicName2 = document.querySelector('#comicname2');
 const comicName3 = document.querySelector('#comicname3');
 const comicName4 = document.querySelector('#comicname4');
-const comicUri0 = document.querySelector('#comicresourceURI0');
-const comicUri1 = document.querySelector('#comicresourceURI1');
-const comicUri2 = document.querySelector('#comicresourceURI2');
-const comicUri3 = document.querySelector('#comicresourceURI3');
-const comicUri4 = document.querySelector('#comicresourceURI4');
+
 
 const events = document.querySelector('#events');
 const eventName0 = document.querySelector('#eventname0');
@@ -27,11 +24,7 @@ const eventName1= document.querySelector('#eventname1');
 const eventName2 = document.querySelector('#eventname2');
 const eventName3 = document.querySelector('#eventname3');
 const eventName4 = document.querySelector('#eventname4');
-const eventsUri0 = document.querySelector('#eventresourceURI0');
-const eventsUri1 = document.querySelector('#eventresourceURI1');
-const eventsUri2 = document.querySelector('#eventresourceURI2');
-const eventsUri3 = document.querySelector('#eventresourceURI3');
-const eventsUri4 = document.querySelector('#eventresourceURI4');
+
 
 const series = document.querySelector('#series');
 const seriesName0 = document.querySelector('#seriesname0');
@@ -39,11 +32,7 @@ const seriesName1 = document.querySelector('#seriesname1');
 const seriesName2 = document.querySelector('#seriesname2');
 const seriesName3 = document.querySelector('#seriesname3');
 const seriesName4 = document.querySelector('#seriesname4');
-const seriesUri0 = document.querySelector('#seriesresourceURI0');
-const seriesUri1 = document.querySelector('#seriesresourceURI1');
-const seriesUri2 = document.querySelector('#seriesresourceURI2');
-const seriesUri3 = document.querySelector('#seriesresourceURI3');
-const seriesUri4 = document.querySelector('#seriesresourceURI4');
+
 
 const stories = document.querySelector('#stories');
 const storyName0 = document.querySelector('#storiename0');
@@ -51,11 +40,7 @@ const storyName1 = document.querySelector('#storiename1');
 const storyName2 = document.querySelector('#storiename2');
 const storyName3 = document.querySelector('#storiename3');
 const storyName4 = document.querySelector('#storiename4');
-const storyUri0 = document.querySelector('#storieresourceURI0');
-const storyUri1 = document.querySelector('#storieresourceURI1');
-const storyUri2 = document.querySelector('#storieresourceURI2');
-const storyUri3 = document.querySelector('#storieresourceURI3');
-const storyUri4 = document.querySelector('#storieresourceURI4');
+
 
 // Function to open the modal
 function openModal() {
@@ -122,78 +107,65 @@ function characterSearch(e) {
     const privateKey = '3678b6d1f8b70006affda9d60258ca738a1d711d';
     const ts = new Date().getTime();
     const hash = md5(ts + privateKey + publicKey);
-
-    const marvelURL = `https://gateway.marvel.com/v1/public/characters?${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
     let character = document.querySelector('#characterName').value;
 
+    const marvelURL = `https://gateway.marvel.com/v1/public/characters?name=${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    
+
+    console.log(marvelURL)
     fetch(marvelURL)
-        .then(response => {
-            if (!response.ok) {
+    .then(response => {
+      if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        .then(data => updateCharacterBio(data)) // Call the separate function to update character info
-        .then(data => {console.log(data)
-        .catch(error => console.error('Error:', error))
-        
-        //characterBio.textContent = data.data.results[0].description;
+        .then(data => {
+          console.log(data); // Log data for debugging purposes
+          updateCharacterBio(data);  // Update character info
+
+        //.catch(error => console.error('Error:', error))
+        thumbnail.src = data.data.results[0].thumbnail.path+'.'+data.data.results[0].thumbnail.extension
+        characterBio.textContent = data.data.results[0].description;
 
         comicName0.textContent = data.data.results[0].comics.items[0].name;
-        comicUri0.textContent = data.data.results[0].comics.items[0].resourceURI;
         comicName1.textContent = data.data.results[0].comics.items[1].name;
-        comicUri1.textContent = data.data.results[0].comics.items[1].resourceURI;
         comicName2.textContent = data.data.results[0].comics.items[2].name;
-        comicUri2.textContent = data.data.results[0].comics.items[2].resourceURI;
         comicName3.textContent = data.data.results[0].comics.items[3].name;
-        comicUri3.textContent = data.data.results[0].comics.items[3].resourceURI;
         comicName4.textContent = data.data.results[0].comics.items[4].name;
-        comicUri4.textContent = data.data.results[0].comics.items[4].resourceURI;
          
         // events.textContent = data.
         eventName0.textContent = data.data.results[0].events.items[0].name;
-        eventsUri0.textContent = data.data.results[0].events.items[0].resourceURI;
         eventName1.textContent = data.data.results[0].events.items[1].name;
-        eventsUri1.textContent = data.data.results[0].events.items[1].resourceURI;
         eventName2.textContent = data.data.results[0].events.items[2].name;
-        eventsUri2.textContent = data.data.results[0].events.items[2].resourceURI;
         eventName3.textContent = data.data.results[0].events.items[3].name;
-        eventsUri3.textContent = data.data.results[0].events.items[3].resourceURI;
         eventName4.textContent = data.data.results[0].events.items[4].name;
-        eventsUri4.textContent = data.data.results[0].events.items[4].resourceURI;
         
          //series.textContent = data.
         seriesName0.textContent = data.data.results[0].series.items[0].name;
-        seriesUri0.textContent = data.data.results[0].series.items[0].resourceURI;
         seriesName1.textContent = data.data.results[0].series.items[1].name;
-        seriesUri1.textContent = data.data.results[0].series.items[1].resourceURI;
         seriesName2.textContent = data.data.results[0].series.items[2].name;
-        seriesUri2.textContent = data.data.results[0].series.items[2].resourceURI;
         seriesName3.textContent = data.data.results[0].series.items[3].name;
-        seriesUri3.textContent = data.data.results[0].series.items[3].resourceURI;
         seriesName4.textContent = data.data.results[0].series.items[4].name;
-        seriesUri4.textContent = data.data.results[0].series.items[4].resourceURI;
         
         // stories.textContent = data.
         storyName0.textContent = data.data.results[0].stories.items[0].name;
-        storyUri0.textContent = data.data.results[0].stories.items[0].resourceURI;
         storyName1.textContent = data.data.results[0].stories.items[1].name;
-        storyUri1.textContent = data.data.results[0].stories.items[1].resourceURI;
         storyName2.textContent = data.data.results[0].stories.items[2].name;
-        storyUri2.textContent = data.data.results[0].stories.items[2].resourceURI;
         storyName3.textContent = data.data.results[0].stories.items[3].name;
-        storyUri3.textContent = data.data.results[0].stories.items[3].resourceURI;
         storyName4.textContent = data.data.results[0].stories.items[4].name;
-        storyUri4.textContent = data.data.results[0].stories.items[4].resourceURI;
+        })
+
+        .catch(error => console.error('Error:', error));  // Catch errors from fetch or updateCharacterBio
 
   // Call searchYoutube only if YouTube API is ready
   if (typeof YT !== 'undefined' && YT.Player) {
-    //searchYoutube(character);
+    searchYoutube(character);
   } else {
     console.error("YouTube API not yet loaded. Search may not work correctly.");
   }
 }
-)}
+
 
 // Function to get the video id of the youtube video
 function searchYoutube(character) {
@@ -225,6 +197,7 @@ function searchYoutube(character) {
 
 // Function for the name, thumbnail and description of the character
 function updateCharacterBio(data) {
+    let character = document.querySelector('#characterName').value;
   console.log("Character Bio Data:", character);
   // Clear existing content (optional)
   characterBio.innerHTML = ''; // This removes any previous content
