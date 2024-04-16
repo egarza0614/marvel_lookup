@@ -111,9 +111,6 @@ function characterSearch(e) {
 
     const marvelURL = `https://gateway.marvel.com/v1/public/characters?name=${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
-    const marvelURL = `https://gateway.marvel.com/v1/public/characters?name=${character}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
-    
-
     console.log(marvelURL)
     fetch(marvelURL)
     .then(response => {
