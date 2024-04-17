@@ -4,9 +4,8 @@
 
 #videoplayer {
   background-color: #75c0f5;
-  align: center;
-  height: 390px;
-  width: 640px;
+  height: 65%;
+  width: 100%;
 }
 
 .hero {
